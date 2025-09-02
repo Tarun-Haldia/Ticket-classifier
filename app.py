@@ -112,5 +112,8 @@ interface = gr.Interface(
     description="Paste any support ticket to see predictions and extracted entities."
 )
 
+import os
+
 if __name__ == "__main__":
-    interface.launch(server_name="0.0.0.0", server_port=7860)
+    port = int(os.getenv("PORT", 10000))  # Render PORT env var, fallback 10000
+    interface.launch(server_name="0.0.0.0", server_port=port)
